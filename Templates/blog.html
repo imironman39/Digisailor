@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BLOG</title>
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="shortcut icon"   href="\static\pics\wolves.jpeg" type="image/x-icon">
+
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Roboto:wght@500&family=Tourney:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Agbalumo&family=Black+Ops+One&family=Roboto:wght@500&family=Tourney:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Agbalumo&family=Black+Ops+One&family=Fugaz+One&family=Lobster&family=Roboto:wght@500&family=Tourney:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+    ::placeholder{
+        color: aliceblue;
+    }
+
+    .blue-button {
+        background-color: #0ea5ea;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 90%;
+        font-size: 20px;
+
+      }
+      
+      /* Hover effect */
+      .blue-button:hover {
+        background-color: darkblue;
+      }
+      
+</style>
+
+
+
+<body class="bgimage2">
+<div class="header">
+      <!-- shadow div -->
+      <div class="nav" >
+        <img
+          class="wolves" src="\static\pics\wolves.jpeg"
+          width="100px"
+          alt="" />
+        <h1 class="shadow"  style="color: rgb(255, 255, 255); margin-left:15px">SHADOW</h1>
+      </div>
+      <!-- home div -->
+      <div class="rightside">     
+       <ul>
+        <li><a href="Home">HOME</a></li>
+        <li><a href='{{url_for("blog")}}'>WRITE A BLOG</a></li>
+        <li><a href='{{url_for("recent")}}'>RECENTLY ADDED BLOGS</a></li>
+        <li><a href="#help">HELP</a></li>
+        <li><a href="#categories">CATEGORIES</a>
+        <ul class="dropdown">
+          <li><a href='{{url_for("sports")}}'>SPORTS</a></li>
+          <li><a href='{{url_for("travel")}}'>TRAVEL</a></li>
+        </ul>
+      </li>
+
+      </div>
+ </div>
+
+
+    <div class="flex3" >
+        <input type="text"  class="title" placeholder="Add a Title" name="" id="">
+        <textarea type="text"  class="title2" placeholder="Write a blog" name="" id=""></textarea>
+        <button class="blue-button"  onclick="publish()"> Publish</button>
+
+        
+
+    </div>
+
+
+
+  <script>
+    function publish(){
+        title=document.querySelector(".title")
+        blog=document.querySelector(".title2")
+        if (title.value =="" && blog.value ==""){
+            alert("write something and then click")
+        }
+
+        else {
+            fetch("/publish" ,{
+                method:'POST',
+                body:JSON.stringify({"title":title.value,"blog":blog.value})
+
+            })
+
+            .then(res=>{
+                if(res.ok){
+                    return res.text()
+                }
+            })
+
+            .then(data=>{
+                if(data=="ok"){
+                    alert("your Blod successfully added")
+                    title.value=""
+                    blog.value=""
+                }
+                else{
+                    alert("cant able to add the blog ")
+                }
+
+            })
+        }
+
+    }
+  </script>
+  </body>
+</html>

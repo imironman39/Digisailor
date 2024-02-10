@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL</title>
+     <link rel="stylesheet" href="/static/styles/style.css">
+     <link rel="shortcut icon"   href="\static\pics\wolves.jpeg" type="image/x-icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Agbalumo&family=Black+Ops+One&family=Fugaz+One&family=Kdam+Thmor+Pro&family=Lobster&family=Roboto:wght@500&family=Tourney:wght@700&display=swap" rel="stylesheet">
+    </head>
+<body>
+
+
+
+    <div class="header">
+        <!-- shadow div -->
+        <div class="nav" >
+          <img
+            class="wolves" src="\static\pics\wolves.jpeg"
+            width="100px"
+            alt="" />
+          <h1 class="shadow"  style="color: black; margin-left:15px">SHADOW</h1>
+        </div>
+        <!-- home div -->
+        <div class="rightside">     
+         <ul>
+          <li><a href="Home">HOME</a></li>
+          <li><a href='{{url_for("blog")}}'>WRITE A BLOG</a></li>
+          <li><a href='{{url_for("recent")}}'>RECENTLY ADDED BLOGS</a></li>
+          <li><a href="#help">HELP</a></li>
+          <li><a href="#categories">CATEGORIES</a>
+          <ul class="dropdown">
+            <li><a href='{{url_for("sports")}}'>SPORTS</a></li>
+            <li><a href='{{url_for("travel")}}'>TRAVEL</a></li>
+          </ul>
+        </li>
+  
+        </div>
+   </div>
+  
+    <header class="travelbg">
+        
+    </header>
+  
+   <div class="travel-images">
+    <div>
+        <img class="t-one"
+         src="/static/pics/travel-1.jpeg" alt="">
+    </div>
+<div>
+    <img class="t-one"
+     src="/static/pics/travel-3.jpeg" alt="">
+</div>   
+</div>
+<div class="travel-p">
+    <p class="travel-para"> Traveling opens a door to the unknown, a portal that transcends boundaries of familiarity and beckons with promises of discovery. It's not merely a physical journey from one place to another but a voyage of the soul, an immersion into cultures, landscapes, and histories. Each destination whispers tales of its own, weaving a tapestry of experiences that paint the canvas of memory in vibrant hues. The bustle of cities becomes a symphony of life, while serene landscapes offer a tranquil escape. Every step taken, every sight beheld, unravels a new chapter in the traveler's story, fostering connections with people, places, and oneself. In the midst of unfamiliarity, one finds kinship in diversity, realizing that despite differences, the human experience is woven together by threads of curiosity and shared moments. Travel isn't just about changing locations; it's about transforming perspectives, embracing the beauty of the world, and finding fragments of oneself scattered across the globe.
+                         
+</p>
+</div>
+<div>
+<div class="lastdiv">
+    <img
+    class="lastdiv" src="/static/pics/travel-4.jpeg" alt="">
+</div>
+    </div>
+</body>
+</html>
